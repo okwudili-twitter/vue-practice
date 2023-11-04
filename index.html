@@ -1,21 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="style.css">
+        <!-- <link rel="stylesheet" href="style.css"> -->
         <script src="https://unpkg.com/vue@3"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
-    <body>
+    <body class="h-full grid place-items-center">
         <div id="app">
-            <button>Click Me!</button>
+            <section>
+                <h2>Assignments</h2>
+
+                <ul>
+                    <li>Finish Project 1</li>
+                    <li>Finish Project 2</li>
+                    <li>Finish Project 3</li>
+                </ul>
+            </section>
         </div>
 
         <script>
             Vue.createApp({
+
 
             }).mount('#app');
         </script>
