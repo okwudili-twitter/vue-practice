@@ -9,10 +9,33 @@
     </head>
 
     <body>
-        <div id="app"></div>
+        <div id="app">
+
+            <input type="text" v-model="greeting" id="">
+            <br>
+            <small v-if="greeting.length < 10 " style="color: red;">{{ error }}</small>
+
+            <p>
+                {{ greeting }} ({{ greeting.length }})
+            </p>
+
+        </div>
 
         <script>
-            Vue.createApp({}).mount('#app');
+            Vue.createApp({
+                data() {
+                    return {
+                        greeting: 'Hello World!',
+                        error: 'Not available!',
+                    }
+                },
+
+                mounted() {
+                    setTimeout( () => {
+                        this.greeting = 'Changed!'
+                    }, 3000)
+                },
+            }).mount('#app');
         </script>
     </body>
 
