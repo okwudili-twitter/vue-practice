@@ -5,14 +5,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="style.css">
         <script src="https://unpkg.com/vue@3"></script>
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
     <body class="h-full grid place-items-center">
         <div id="app">
-            <my-button>Submit</my-button>
+            <my-button :processing="true" btn_type="warning" >Submit</my-button>
         </div>
 
         <script type="module" >
