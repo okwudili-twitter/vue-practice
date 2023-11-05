@@ -1,8 +1,10 @@
 import Assignment from "./Assignment.js";
+import AssignmentTags from "./AssignmentTags.js";
 
 export default {
     components: {
         'assignment' : Assignment,
+        'assignment-tags' : AssignmentTags,
     },
 
     template: `
@@ -12,30 +14,11 @@ export default {
                 <span>({{ assignments.length }})</span>
             </h2>
 
-            <div class="flex flex-wrap gap-1 " style="width: 230px">
-                <button
-                    :key="1000000"
-                    @click="currentTag = 'all' "
-                    :class="{
-                        'border rounded px-1 py-px text-xs' : true,
-                        'text-blue-500 border-blue-500' : currentTag == 'all',
-                    } "
-                >
-                    all
-                </button>
-
-                <button
-                    v-for="tag in tags"
-                    :key="tag.id"
-                    @click="currentTag = tag.name"
-                    :class="{
-                        'border rounded px-1 py-px text-xs' : true,
-                        'text-blue-500 border-blue-500' : currentTag == tag.name,
-                    } "
-                >
-                    {{ tag.name }}
-                </button>
-            </div>
+            <assignment-tags
+                :tags="tags"
+                :currentTag="currentTag"
+                @updateCurrentTag="currentTag = $event"
+            ></assignment-tags>
 
             <ul class="border border-gray-600 divide-y divide-gray-600 mt-4">
                 <assignment
