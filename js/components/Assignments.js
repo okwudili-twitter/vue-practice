@@ -1,8 +1,10 @@
+import AssignmentCreate from "./AssignmentCreate.js";
 import AssignmentList from "./AssignmentList.js";
 
 export default {
     components: {
         'assignment-list' : AssignmentList,
+        'assignment-create' : AssignmentCreate,
     },
 
     template: `
@@ -10,12 +12,7 @@ export default {
             <assignment-list title="In Progress" :assignments="filters.inProgress"></assignment-list>
             <assignment-list title="Completed" :assignments="filters.completed"></assignment-list>
 
-            <form @submit.prevent="add()" >
-                <div class="border border-gray-600 text-black">
-                    <input v-model="new_assignment" required placeholder="New Assignment..." class="p-2" />
-                    <button type="submit" class="bg-white p-2 border-l">Add</button>
-                </div>
-            </form>
+            <assignment-create @add="add" :error="error" ></assignment-create>
 
         </section>
 
@@ -29,7 +26,7 @@ export default {
                 {id:3, name: 'Finish Project 3', completed: false},
                 {id:4, name: 'Finish Project 4', completed: false},
             ],
-            new_assignment: ''
+            error: '',
         }
     },
 
@@ -43,14 +40,24 @@ export default {
     },
 
     methods: {
-        add() {
-            this.assignments.push({
-                name: this.capitalizeString(this.new_assignment),
-                completed: false,
-                id: this.assignments.length + 1
-            });
+        add(name) {
+            // Check if the new_assignment already exists in assignments
+            const assignmentExists = this.assignments.some(
+                (assignment) => assignment.name.toLowerCase() === name
+            );
 
-            this.new_assignment = ''
+            if (assignmentExists) {
+                this.error = 'Assignment already exists!';
+            } else {
+                this.assignments.push({
+                    name: this.capitalizeString(name),
+                    completed: false,
+                    id: this.assignments.length + 1
+                });
+
+                this.error = '';
+            }
+
         },
         capitalizeString(str) {
             return str.replace(/\b\w/g, function(match) {
