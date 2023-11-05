@@ -16,8 +16,7 @@ export default {
 
             <assignment-tags
                 :tags="tags"
-                :currentTag="currentTag"
-                @updateCurrentTag="currentTag = $event"
+                v-model="currentTag"
             ></assignment-tags>
 
             <ul class="border border-gray-600 divide-y divide-gray-600 mt-4">
