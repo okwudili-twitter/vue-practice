@@ -9,8 +9,8 @@ export default {
 
     template: `
         <section class="space-y-6">
-            <assignment-list title="In Progress" :assignments="filters.inProgress"></assignment-list>
-            <assignment-list title="Completed" :assignments="filters.completed"></assignment-list>
+            <assignment-list :tags="tags" title="In Progress" :assignments="filters.inProgress"></assignment-list>
+            <assignment-list :tags="tags"  title="Completed" :assignments="filters.completed"></assignment-list>
 
             <assignment-create :tags="tags" @add="add" :error="error" ></assignment-create>
 
@@ -31,7 +31,7 @@ export default {
                 {id: 2, name: 'english'},
                 {id: 3, name: 'science'},
                 {id: 4, name: 'fiction'},
-                {id: 5, name: 'Coding'},
+                {id: 5, name: 'coding'},
             ],
             error: '',
         }

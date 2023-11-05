@@ -8,7 +8,7 @@ export default {
 
             <p>Tags:</p>
 
-            <div class="flex flex-wrap space-x-4" style="width: 250px;">
+            <div class="flex flex-wrap space-x-4" style="width: 240px;">
 
                 <label v-for="tag in tags" :key="tag.id" class="flex items-center space-x-2">
                     <input
