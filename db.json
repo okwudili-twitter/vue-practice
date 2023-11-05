@@ -1,0 +1,48 @@
+{
+    "tags" : [
+        {"id" : 1, "name" : "maths"},
+        {"id" : 2, "name" : "english"},
+        {"id" : 3, "name" : "science"},
+        {"id" : 4, "name" : "fiction"},
+        {"id" : 5, "name" : "coding"}
+    ],
+
+    "assignments" : [
+        {
+            "id" : 1,
+            "name" : "Finish Project 1",
+            "complete" : false,
+            "tags" : ["maths", "english"]
+        },
+        {
+            "id" : 2,
+            "name" : "Finish Project 2",
+            "complete" : false,
+            "tags" : ["science", "english"]
+        },
+        {
+            "id" : 3,
+            "name" : "Finish Project 3",
+            "complete" : false,
+            "tags" : ["science", "maths", "coding"]
+        },
+        {
+            "id" : 4,
+            "name" : "Finish Project 4",
+            "complete" : false,
+            "tags" : ["fiction", "coding"]
+        },
+        {
+            "id" : 5,
+            "name" : "Finish Project 5",
+            "complete" : false,
+            "tags" : ["english"]
+        },
+        {
+            "id" : 6,
+            "name" : "Finish Project 6",
+            "complete" : false,
+            "tags" : ["maths"]
+        }
+    ]
+}
