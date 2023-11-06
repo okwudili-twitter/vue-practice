@@ -8,12 +8,12 @@ export default {
     },
 
     template: `
-        <section class="space-y-6">
-            <assignment-list :tags="tags" title="In Progress" :assignments="filters.inProgress"></assignment-list>
+        <section class="flex gap-8">
+            <assignment-list :canToggle="false" :tags="tags" title="In Progress" :assignments="filters.inProgress">
+                <assignment-create :tags="tags" @add="add" :error="error" ></assignment-create>
+            </assignment-list>
+
             <assignment-list :tags="tags"  title="Completed" :assignments="filters.completed"></assignment-list>
-
-            <assignment-create :tags="tags" @add="add" :error="error" ></assignment-create>
-
         </section>
 
     `,

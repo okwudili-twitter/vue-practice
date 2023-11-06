@@ -8,11 +8,16 @@ export default {
     },
 
     template: `
-        <section v-show="assignments.length" style="width:230px" >
-            <h2 class="font-bold mb-2" >
-                {{ title }}
-                <span>({{ assignments.length }})</span>
-            </h2>
+        <section v-show="show && assignments.length"
+            class="w-70 bg-gray-700 p-4 border border-gray-400 rounded-lg"
+        >
+            <div class="flex justify-between item-start">
+                <h2 class="font-bold mb-2" >
+                    {{ title }}
+                    <span>({{ assignments.length }})</span>
+                </h2>
+                <button v-show="canToggle" @click="show = false" >&times;</button>
+            </div>
 
             <assignment-tags
                 :tags="tags"
@@ -31,12 +36,18 @@ export default {
             <span class="text-yellow-500"
                 v-show="filteredAssignments.length == 0"
             >No '{{ title }}' assignments in '{{ currentTag }}' tag</span>
+
+            <div class="p-1 bg-red-500 mt-4">
+                <slot></slot>
+            </div>
+
         </section>
     `,
 
     data() {
         return {
             'currentTag' : 'all',
+            'show' : true,
         }
     },
 
@@ -47,6 +58,7 @@ export default {
         },
         title: String,
         tags: Array,
+        canToggle: {type: Boolean, default: true}
     },
 
     computed: {

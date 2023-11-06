@@ -1,6 +1,6 @@
 export default {
     template : `
-        <div class="flex flex-wrap gap-1 " style="width: 230px">
+        <div class="flex flex-wrap gap-1 ">
             <button
                 :key="1000000"
                 @click="$emit('update:modelValue', 'all')"

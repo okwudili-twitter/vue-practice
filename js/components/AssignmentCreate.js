@@ -1,14 +1,14 @@
 export default {
     template: `
         <form @submit.prevent="add" >
-            <div class="border border-gray-600 text-black">
-                <input v-model="new_assignment" required placeholder="New Assignment..." class="p-2" />
-                <button type="submit" class="bg-white p-2 border-l">Add</button>
+            <div class="text-black flex ">
+                <input v-model="new_assignment" required placeholder="New Assignment..." class="p-0.5" />
+                <button type="submit" class="bg-white p-0.5 border-l">Add</button>
             </div>
 
             <p>Tags:</p>
 
-            <div class="flex flex-wrap space-x-4" style="width: 240px;">
+            <div class="flex flex-wrap space-x-4">
 
                 <label v-for="tag in tags" :key="tag.id" class="flex items-center space-x-2">
                     <input
