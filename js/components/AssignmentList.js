@@ -9,7 +9,7 @@ export default {
 
     template: `
         <section v-show="show && assignments.length"
-            class="w-70 bg-gray-700 p-4 border border-gray-400 rounded-lg"
+            class="w-72 bg-gray-700 p-4 border border-gray-400 rounded-lg"
         >
             <div class="flex justify-between item-start">
                 <h2 class="font-bold mb-2" >
@@ -37,9 +37,9 @@ export default {
                 v-show="filteredAssignments.length == 0"
             >No '{{ title }}' assignments in '{{ currentTag }}' tag</span>
 
-            <div class="p-1 bg-red-500 mt-4">
-                <slot></slot>
-            </div>
+
+            <slot></slot>
+
 
         </section>
     `,
